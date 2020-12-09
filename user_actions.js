@@ -86,7 +86,7 @@ async function login(){
         $('#login_show').modal('hide');
         error_notification("Something Went Wrong");
     } 
-    setTimeout(stop_loading_screen, 1000) 
+    setTimeout(stop_loading_screen, 3000) 
   }
 
   async function register(){
