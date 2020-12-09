@@ -53,6 +53,7 @@ async function check(){
 check();
 
 async function topic_detail(){
+    start_loading_screen();
     let response = await fetch(host+"topic",{
         method: "POST",
         headers: { 
@@ -81,9 +82,21 @@ async function topic_detail(){
         <span >${msg}</span>
     </div>
     <div style="text-align: center;">
-    <button class="btn btn-success" data-toggle="modal" data-target="#replies_show" style="background-color: #65bb12;">Post Reply</button></div>
+        <hr/>
+        <div class="row">
+            <div class="col-12 col-md-10">
+                ${result["content"]}
+            </div>
+            <div class="col-12 col-md-2">
+                <button class="btn btn-success" data-toggle="modal" data-target="#replies_show" style="background-color: #65bb12;">Post Reply</button>
+            </div>
+        </div>
+    </div>
+    
     `;
+    console.log(topic)
     replies();
+    stop_loading_screen();
   }
 
   function get_time_diff(time){
@@ -124,7 +137,7 @@ async function topic_detail(){
         <div class="row ml-5">
             <div class="col-12">
                 <hr/>
-                <div class="topic_type">
+                <div style="color: black;">
                 <span id=${item["_id"]}>${item["content"]} </span>
                 <span>
                 <button style="font-size:24px; border: 0px; background-color: white;" value=${item["_id"]} onclick="delete_reply(this);"}><i class='fas fa-trash-alt'></i></button>

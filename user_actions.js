@@ -86,7 +86,7 @@ async function login(){
         $('#login_show').modal('hide');
         error_notification("Something Went Wrong");
     } 
-    stop_loading_screen(); 
+    setTimeout(stop_loading_screen, 1000) 
   }
 
   async function register(){
@@ -152,7 +152,7 @@ async function login(){
         else{
             success_notification(result["detail"])
             document.getElementById("create_topic").reset();
-
+            topics();
         } 
     }
     catch(error){
@@ -192,12 +192,13 @@ async function login(){
         <div class="row ml-5">
             <div class="col-12">
                 <hr/>
-                <a href="./posts.html?id=${item["_id"]}">
+                <a href="./posts.html?id=${item["_id"]}" target="_blank">
                 <div class="topic_type">
                 ${item["category"]}
                 </div>
-                <div class="topic_type">
-                ${item["topic"] +"-"+ item["content"]}
+                <div style="color: black;">
+                <b>${item["topic"]} - </b>
+                <span>${item["content"].slice(0, 200)+"  ........"}</span>
                 </div>
                 <div class="topicBy">
                     <span >By: </span>
@@ -279,13 +280,13 @@ async function login(){
         topics.innerHTML += `
         <div class="row">
             <div class="col-12">
-                <hr/>
-                <a href="./posts.html?id=${item["_id"]}">
+                <a href="./posts.html?id=${item["_id"]}" target="_blank">
                 <div class="topic_type">
                 ${item["category"]}
                 </div>
-                <div class="topic_type">
-                ${item["topic"] +"-"+ item["content"]}
+                <div style="color: black;">
+                <b>${item["topic"]} - </b>
+                <span>${item["content"].slice(0, 150)+"  ....."}</span>
                 </div>
                 <div class="topicBy">
                     <span >By: </span>
@@ -294,6 +295,7 @@ async function login(){
                     <span >${msg}</span>
                 </div>
                 </a>
+                <hr/>
             </div>
         </div>
         `
