@@ -81,7 +81,7 @@ async function topic_detail(){
         <span class="separator">·</span>
         <span >${msg}</span>
     </div>
-    <div style="text-align: center;">
+    <div >
         <hr/>
         <div class="row">
             <div class="col-12 col-md-10">
@@ -130,6 +130,9 @@ async function topic_detail(){
     let result = await response.json();
     result = result["result"];
     let topic = document.getElementById("post_detail");
+    topic.innerHTML += `
+    <h4 class="display-5" style="text-align: center;">Replies</h4>
+    `
     console.log(result)
     result.forEach((item)=>{
         let msg = get_time_diff(item["created"]);
