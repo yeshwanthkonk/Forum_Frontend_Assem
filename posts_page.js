@@ -1,4 +1,4 @@
-var host = "http://localhost:3000/"
+var host = "https://tech-forum-yesh.herokuapp.com/"
 let div = document.getElementById('nav_user_status');
 async function check(){
     let token = sessionStorage.getItem("token_id");
