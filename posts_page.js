@@ -94,9 +94,8 @@ async function topic_detail(){
     </div>
     
     `;
-    console.log(topic)
+
     replies();
-    stop_loading_screen();
   }
 
   function get_time_diff(time){
@@ -113,6 +112,7 @@ async function topic_detail(){
   }
 
   async function replies(){
+    start_loading_screen();
 
     let response = await fetch(host+"retrive_replies",{
         method: "POST",
@@ -133,7 +133,7 @@ async function topic_detail(){
     topic.innerHTML += `
     <h4 class="display-5" style="text-align: center;">Replies</h4>
     `
-    console.log(result)
+    
     result.forEach((item)=>{
         let msg = get_time_diff(item["created"]);
         topic.innerHTML += `
@@ -160,6 +160,7 @@ async function topic_detail(){
         </div>
         `
     })
+    stop_loading_screen();
   }
 
   async function create_reply(){

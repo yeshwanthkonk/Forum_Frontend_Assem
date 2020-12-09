@@ -25,6 +25,24 @@
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
   }
+
+#topic_loading{
+opacity: 0.5;
+    z-index: 1000001;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -100px 0 0 -100px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
   
   @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }

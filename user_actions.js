@@ -163,6 +163,10 @@ async function login(){
   }
 
   async function topics(){
+    let topics = document.getElementById("topics");
+    topics.innerHTML = `
+    <div id="topic_loading" style="display: block; margin-top: 20px;"></div>
+    `;
     let response = await fetch(host+"retrive_topics",{
         headers: { 
             'Content-Type':  
@@ -175,8 +179,9 @@ async function login(){
         return;
     }
     let result = await response.json();
+
     result = result["result"];
-    let topics = document.getElementById("topics");
+
     topics.innerHTML = "";
     result.forEach((item)=>{
         let time_diff = parseInt((new Date() - new Date(item["created"]))/1000);
