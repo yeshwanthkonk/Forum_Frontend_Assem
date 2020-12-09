@@ -151,7 +151,7 @@ async function login(){
             error_notification(result['detail']);
         else{
             success_notification(result["detail"])
-            document.getElementById("create_topic").reset();
+            document.getElementById("create_form_topic").reset();
             topics();
         } 
     }

@@ -134,7 +134,7 @@ async function topic_detail(){
     result.forEach((item)=>{
         let msg = get_time_diff(item["created"]);
         topic.innerHTML += `
-        <div class="row ml-5">
+        <div class="row">
             <div class="col-12">
                 <hr/>
                 <div style="color: black;">
